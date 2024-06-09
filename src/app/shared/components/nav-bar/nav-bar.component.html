@@ -1,0 +1,31 @@
+
+<!--<button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+   <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>
+-->
+<nav [attr.data-state]="stateNav" class="overflow-hidden bg-custom-main group py-2 z-10 h-screen w-14 data-[state=expanded]:w-[13rem] border-r bg-studio border-default data-[state=expanded]:shadow-xl transition-width duration-200 hide-scrollbar flex flex-col justify-between overflow-y-auto" (mouseout)="stateNav='collapsed'" (mouseover)="stateNav='expanded'">
+      <ul class="flex flex-col gap-y-1 justify-start px-2">
+         @for (item of main_menu; track $index) {
+            <a role="button" [attr.data-select]="item.select" class="relative h-10 w-10 group-data-[state=expanded]:w-full transition-all duration-200 flex items-center rounded group-data-[state=collapsed]:justify-center group-data-[state=expanded]:-space-x-2 text-foreground-lighter hover:text-foreground hover:bg-surface-200 group/item" (click)="changeState($index)">
+               <span class="absolute left-0 top-0 flex rounded h-10 w-10 items-center justify-center">
+                  <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                     <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
+                     <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
+                  </svg>
+               </span>
+               <span class="text-white min-w-[128px] text-sm text-foreground-light group-hover/item:text-foreground group-aria-current/item:text-foreground absolute left-7 group-data-[state=expanded]:left-12 opacity-0 group-data-[state=expanded]:opacity-100 transition-all">{{item.text}}</span>
+            </a>
+         }
+      </ul>
+
+      <div>
+         <button class="text-white" (click)="cerrarSesion()">
+             Cerrar session
+         </button>
+      </div>
+</nav>
+
+

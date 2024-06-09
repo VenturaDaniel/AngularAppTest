@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+[data-select=true]{
+    background-color:#ffffff4a;
+    &::before{
+        background-color: rebeccapurple;
+    }
+    &::after{
+        background-color: aqua;
+    }
+}
+
+
+[data-state="expanded"]{
+    width: 13rem;
+    position: relative;
+}
+
