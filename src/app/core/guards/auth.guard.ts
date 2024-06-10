@@ -12,7 +12,7 @@ export const privateGuard: CanActivateFn = async () =>{
 
     const {data} = await authService().session();
     
-    console.log("private guard " + !data.session);
+    console.log("private guard 2" + data.session?.user.email);
     if(!data.session){
         router.navigateByUrl('/auth/login');
     }

@@ -30,6 +30,8 @@ export default class AuthComponent {
       this.loading = true;
       const { data,error } = await this._authService.singIntWithPassword('test@user.pe',this.password);
       if (error) throw error
+
+      localStorage.setItem("user",data.user.email as string);
       this.router.navigateByUrl('/dashboard');
     } catch (error) {
       if (error instanceof Error) {

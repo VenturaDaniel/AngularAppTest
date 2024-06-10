@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,9 +13,14 @@ import { AuthService } from '../../../core/services/auth.service';
   
 export class NavBarComponent {
 
-  constructor( private authService : AuthService )
+  constructor( 
+    private authService : AuthService,
+    private readonly router : Router )
   {}
   
+  
+  email_user = localStorage.getItem('user');
+
   stateNav = 'collapsed'
   main_menu = [
     {
@@ -40,6 +46,7 @@ export class NavBarComponent {
 
   cerrarSesion(){
     this.authService.signOut();
+    this.router.navigateByUrl('/auth/login');
   }
 
 

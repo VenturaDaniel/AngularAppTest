@@ -12,5 +12,16 @@ export const routes: Routes = [
         path: 'dashboard',
         canActivate: [privateGuard],
         loadComponent: () => import('./core/components/dashboard/dashboard.component')
+    },
+    {
+        path:'',
+        pathMatch: 'full',
+        redirectTo: 'dashboard'
+    },
+    {
+        path:'**',
+        pathMatch: 'full',
+        redirectTo: 'dashboard'
     }
+    
 ];
